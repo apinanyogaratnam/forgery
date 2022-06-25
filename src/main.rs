@@ -8,6 +8,7 @@ fn main() {
     if args.len() == 1 {
         // print all the commands available
         println!("{}", docs::USAGE);
+        // println!("{}", docs::COMMANDS);
         return;
     }
 }
