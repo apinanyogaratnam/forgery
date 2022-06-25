@@ -1,4 +1,5 @@
 use std::env;
+use std::process::Command;
 
 use forgery::docs;
 
@@ -23,7 +24,11 @@ fn main() {
     match full_commands {
         Some(full_commands) => {
             for command in full_commands.as_array().unwrap() {
-                println!("{}", command.as_str().unwrap());
+                let command = command.as_str().unwrap();
+
+                Command::new(command)
+                    .spawn()
+                    .unwrap();
             }
         }
         None => {
