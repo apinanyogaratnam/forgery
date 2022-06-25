@@ -38,9 +38,10 @@ if split_commands[0] != 'forge':
 
 sub_command: str = ''.join(split_commands[1:])
 
-sub_command_to_execute: str | None = contents.get(sub_command, None)
+sub_commands_to_execute: list | None = contents.get(sub_command, None)
 
-if not sub_command_to_execute:
+if not sub_commands_to_execute:
     raise Exception('Invalid command')
 
-os.system(f'{combined_commands}{sub_command_to_execute}')
+for sub_command in sub_commands_to_execute:
+    print(f'{combined_commands}{sub_command}')
