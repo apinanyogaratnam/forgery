@@ -18,7 +18,14 @@ fn main() {
 
     println!("command to execute: {}", command_to_execute);
 
-    let full_command = json.as_object().unwrap().get(&command_to_execute).unwrap();
+    let full_command = json.as_object().unwrap().get(&command_to_execute);
 
-    println!("full command: {}", full_command);
+    match full_command {
+        Some(full_command) => {
+            println!("{:?}", full_command);
+        }
+        None => {
+            println!("{}", "command not found");
+        }
+    }
 }
