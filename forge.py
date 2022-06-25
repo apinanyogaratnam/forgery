@@ -44,4 +44,4 @@ if not sub_commands_to_execute:
     raise Exception('Invalid command')
 
 for sub_command in sub_commands_to_execute:
-    print(f'{combined_commands}{sub_command}')
+    os.system(f'{combined_commands}{sub_command}')
