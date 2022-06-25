@@ -1,5 +1,6 @@
 import json
 import os
+import sys
 
 # get system info
 process_id: int = os.getpid()
@@ -41,7 +42,8 @@ sub_command: str = ''.join(split_commands[1:])
 sub_commands_to_execute: list | None = contents.get(sub_command, None)
 
 if not sub_commands_to_execute:
-    raise Exception('Invalid command')
+    os.system(f'{combined_commands}{sub_command}')
+    sys.exit(1)
 
 for sub_command in sub_commands_to_execute:
     os.system(f'{combined_commands}{sub_command}')
