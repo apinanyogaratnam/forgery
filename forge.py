@@ -41,10 +41,12 @@ sub_command: str = ' '.join(split_commands[1:])
 
 sub_commands_to_execute: list | None = contents.get(sub_command, None)
 
+# executing command not defined in the forgefile
 if not sub_commands_to_execute:
     command: str = f'{combined_commands}{sub_command}'
     os.system(command)
     sys.exit(1)
 
+# executing command defined in the forgefile
 for sub_command in sub_commands_to_execute:
     os.system(f'{combined_commands}{sub_command}')
