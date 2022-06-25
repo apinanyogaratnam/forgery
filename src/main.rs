@@ -1,5 +1,6 @@
 use std::env;
 use std::process::Command;
+use std::process;
 
 use forgery::docs;
 
@@ -24,15 +25,30 @@ fn main() {
             for command in full_commands.as_array().unwrap() {
                 let command = command.as_str().unwrap();
 
-                let full_command = "source venv/bin/activate; ".to_string() + command;
+                let init_commands = json.as_object().unwrap().get(".init");
 
-                let output = Command::new("sh")
-                    .arg("-c")
-                    .arg(full_command)
-                    .output()
-                    .expect("failed to execute process");
+                match init_commands {
+                    Some(init_commands) => {
+                        let init_commands = init_commands.as_array().unwrap();
 
-                println!("{}", String::from_utf8_lossy(&output.stdout));
+                        for init_command in init_commands {
+                            let init_command = init_command.as_str().unwrap();
+
+                            let full_command = init_command.to_string() + command;
+
+                            let output = Command::new("sh")
+                                .arg("-c")
+                                .arg(full_command)
+                                .output()
+                                .expect("failed to execute process");
+
+                            println!("{}", String::from_utf8_lossy(&output.stdout));
+                        }
+                    }
+                    None => {
+                        process::exit(1);
+                    }
+                }
             }
         }
         None => {
