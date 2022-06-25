@@ -36,7 +36,15 @@ fn main() {
             }
         }
         None => {
-            println!("{}", "command not found");
+            let command = command_to_execute.as_str();
+
+            let output = Command::new("sh")
+                .arg("-c")
+                .arg(command)
+                .output()
+                .expect("failed to execute process");
+
+            println!("{}", String::from_utf8_lossy(&output.stdout));
         }
     }
 }
