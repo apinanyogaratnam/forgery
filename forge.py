@@ -1,6 +1,6 @@
 import os
 
-process_id: int = os.pid()
+process_id: int = os.getpid()
 user: os.uname = os.uname()
 
 command: str = input(f'{user[1]}$')
