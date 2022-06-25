@@ -24,9 +24,11 @@ fn main() {
             for command in full_commands.as_array().unwrap() {
                 let command = command.as_str().unwrap();
 
+                let full_command = "source venv/bin/activate; ".to_string() + command;
+
                 let output = Command::new("sh")
                     .arg("-c")
-                    .arg(command)
+                    .arg(full_command)
                     .output()
                     .expect("failed to execute process");
 
