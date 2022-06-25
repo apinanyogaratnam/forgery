@@ -37,10 +37,7 @@ if not split_commands:
 if split_commands[0] != 'forge':
     raise Exception('Invalid command')
 
-if len(split_commands[1:]) == 1:
-    sub_command: str = ' '.join(split_commands[1:])
-else:
-    sub_command: str = ''.join(split_commands[1:])
+sub_command: str = ' '.join(split_commands[1:])
 
 sub_commands_to_execute: list | None = contents.get(sub_command, None)
 
