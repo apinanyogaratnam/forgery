@@ -31,19 +31,22 @@ fn main() {
                     Some(init_commands) => {
                         let init_commands = init_commands.as_array().unwrap();
 
+                        let mut full_command = String::new();
                         for init_command in init_commands {
                             let init_command = init_command.as_str().unwrap();
+                            full_command.push_str(init_command);
+                            full_command.push_str("; ");
+                        }
 
-                            let full_command = init_command.to_string() + command;
+                        full_command.push_str(command);
 
-                            let output = Command::new("sh")
+                        let output = Command::new("sh")
                                 .arg("-c")
                                 .arg(full_command)
                                 .output()
                                 .expect("failed to execute process");
 
-                            println!("{}", String::from_utf8_lossy(&output.stdout));
-                        }
+                        println!("{}", String::from_utf8_lossy(&output.stdout));
                     }
                     None => {
                         process::exit(1);
