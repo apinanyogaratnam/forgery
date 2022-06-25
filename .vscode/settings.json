@@ -1,6 +1,7 @@
 {
     "cSpell.words": [
         "forgefile",
-        "getpid"
+        "getpid",
+        "sysname"
     ]
 }
