@@ -1,11 +1,8 @@
+import json
 import os
 
-process_id: int = os.getpid()
-user: os.uname = os.uname()
+with open('foregefile.json', 'w') as infile:
+    contents = json.loads(infile)
 
-command: str = input(f'{user[1]} {process_id}$ ')
-
-activate_virtual_environment: str = 'source venv/bin/activate'
-
-virtual_command: str = f'{activate_virtual_environment}; {command}'
-os.system(virtual_command)
+for key, value in contents.items():
+    print('key', key, 'value', value)
