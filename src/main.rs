@@ -22,7 +22,7 @@ fn main() {
 
     match full_command {
         Some(full_command) => {
-            println!("{:?}", full_command);
+            println!("full command: {:?}", full_command);
         }
         None => {
             println!("{}", "command not found");
