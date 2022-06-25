@@ -2,6 +2,8 @@ import json
 import os
 import sys
 
+from colored import stylize, fg
+
 # get system info
 process_id: int = os.getpid()
 user: os.uname = os.uname()
@@ -23,7 +25,8 @@ if initialize_commands:
         combined_commands += f'{command}; '
 
 # get the command from the user to run
-command_to_execute: str = input(f'{user[1]} {process_id}$ ')
+print(stylize(f'{user.nodename}@{user.sysname}:~$ ', fg('green')), end='')
+command_to_execute = input()
 
 # parse and validate the entered command
 split_commands: list = command_to_execute.split(' ')
