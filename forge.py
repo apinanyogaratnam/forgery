@@ -43,7 +43,6 @@ sub_commands_to_execute: list | None = contents.get(sub_command, None)
 
 if not sub_commands_to_execute:
     command: str = f'{combined_commands}{sub_command}'
-    print('command', command)
     os.system(command)
     sys.exit(1)
 
