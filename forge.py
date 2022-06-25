@@ -6,7 +6,7 @@ from colored import stylize, fg
 
 # get system info
 process_id: int = os.getpid()
-user: os.uname = os.uname()
+user: os.uname_result = os.uname()
 
 filename = 'forgefile.json'
 initialize_command_key = '.init'
