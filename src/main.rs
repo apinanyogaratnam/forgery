@@ -17,8 +17,6 @@ fn main() {
 
     let command_to_execute = args[1..].join(" ");
 
-    println!("command to execute: {}", command_to_execute);
-
     let full_commands = json.as_object().unwrap().get(&command_to_execute);
 
     match full_commands {
@@ -26,9 +24,13 @@ fn main() {
             for command in full_commands.as_array().unwrap() {
                 let command = command.as_str().unwrap();
 
-                Command::new(command)
-                    .spawn()
-                    .unwrap();
+                let output = Command::new("sh")
+                    .arg("-c")
+                    .arg(command)
+                    .output()
+                    .expect("failed to execute process");
+
+                println!("{}", String::from_utf8_lossy(&output.stdout));
             }
         }
         None => {
