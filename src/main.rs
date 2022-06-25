@@ -1,7 +1,13 @@
 use std::env;
 
+use forgery::docs;
+
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    println!("{:?}", args);
+    if args.len() == 1 {
+        // print all the commands available
+        println!("Usage: {}", docs::USAGE);
+        return;
+    }
 }
