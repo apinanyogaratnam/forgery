@@ -20,10 +20,7 @@ initialize_commands = contents.get(initialize_command_key, None)
 combined_commands: str = ''
 if initialize_commands:
     for command in initialize_commands:
-        print('command', command)
         combined_commands += f'{command}; '
-
-print(combined_commands)
 
 # get the command from the user to run
 command_to_execute: str = input(f'{user[1]} {process_id}$ ')
@@ -42,7 +39,9 @@ sub_command: str = ' '.join(split_commands[1:])
 sub_commands_to_execute: list | None = contents.get(sub_command, None)
 
 if not sub_commands_to_execute:
-    os.system(f'{combined_commands}{sub_command}')
+    command: str = f'{combined_commands}{sub_command}'
+    print('command', command)
+    os.system(command)
     sys.exit(1)
 
 for sub_command in sub_commands_to_execute:
