@@ -13,6 +13,7 @@ TODO: add colored output
 TODO: when arg len is 1, display all forgefile.json keys as possible commands
 TODO: --help command
 TODO: crates.io documentation
+TODO: nested commands support
 -->
 
 ## How to use
