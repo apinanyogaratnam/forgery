@@ -15,6 +15,7 @@ TODO: --help command
 TODO: crates.io documentation
 TODO: nested commands support
 TODO: allow no need for a forgefile.json file
+TODO: any command in forgefile.json should overwrite the default command
 -->
 
 ## How to use
