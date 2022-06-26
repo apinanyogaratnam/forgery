@@ -12,6 +12,7 @@ before each and every command you specified using the .init key.
 TODO: add colored output
 TODO: when arg len is 1, display all forgefile.json keys as possible commands
 TODO: --help command
+TODO: crates.io documentation
 -->
 
 ## How to use
