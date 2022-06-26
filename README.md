@@ -14,6 +14,7 @@ TODO: when arg len is 1, display all forgefile.json keys as possible commands
 TODO: --help command
 TODO: crates.io documentation
 TODO: nested commands support
+TODO: allow no need for a forgefile.json file
 -->
 
 ## How to use
