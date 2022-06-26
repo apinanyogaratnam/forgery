@@ -1,7 +1,11 @@
 [package]
 name = "forgery"
+description = "A Makefile clone but with a few more features."
 version = "0.1.0"
 edition = "2021"
+authors = ["apinanyogaratnam"]
+license = "MIT"
+repository = "https://github.com/apinanyogaratnam/forgery"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
