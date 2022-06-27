@@ -49,13 +49,7 @@ fn main() {
 
                         full_command.push_str(command);
 
-                        let output = Command::new("sh")
-                                .arg("-c")
-                                .arg(full_command)
-                                .output()
-                                .expect("failed to execute process");
-
-                        println!("{}", String::from_utf8_lossy(&output.stdout));
+                        execute_command(&full_command);
                     }
                     None => {
                         process::exit(1);
