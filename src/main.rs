@@ -4,6 +4,15 @@ use std::process;
 
 use forgery::docs;
 
+fn execute_command(command: &str) {
+    let output = Command::new("sh")
+        .arg("-c")
+        .arg(command)
+        .output()
+        .expect("failed to execute process");
+    println!("{}", String::from_utf8_lossy(&output.stdout));
+}
+
 fn main() {
     let args: Vec<String> = env::args().collect();
 
