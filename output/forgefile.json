@@ -1,0 +1,6 @@
+{
+    ".init": ["source venv/bin/activate"],
+    "deactivate": ["deactivate"],
+    "install": ["pip install -r requirements.txt"],
+    "test": ["python test.py"]
+}
